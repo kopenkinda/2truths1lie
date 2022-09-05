@@ -24,12 +24,12 @@ export default function Counter({
         border: winner ? "4px dashed lime" : "4px solid #333",
       }}
     >
-      <input
+      <textarea
         type="text"
         style={{ fontSize: "2rem" }}
         value={title}
         onChange={(e) => setTitle(e.target.value)}
-      />
+        ></textarea>
       <p style={{ fontSize: "4rem" }}> {count}</p>
       <div style={{ fontSize: "2rem", display: "flex", gap: "1rem" }}>
         <button onClick={() => setCount(Math.max(count - 1, 0))}>-</button>
