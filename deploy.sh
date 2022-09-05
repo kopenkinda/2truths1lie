@@ -6,6 +6,9 @@ set -e
 # build
 npm run build
 
+# Remove git history
+rm -rf dist/.git
+
 # navigate into the build output directory
 cd dist
 
