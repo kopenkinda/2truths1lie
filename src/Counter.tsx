@@ -25,7 +25,6 @@ export default function Counter({
       }}
     >
       <textarea
-        type="text"
         style={{ fontSize: "2rem" }}
         value={title}
         onChange={(e) => setTitle(e.target.value)}
