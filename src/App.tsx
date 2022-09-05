@@ -1,34 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useState } from "react";
+
+import "./App.css";
+import Counter from "./Counter";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [winner, setWinner] = useState(-1);
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <>
+      <div
+        style={{
+          fontSize: "4rem",
+          position: "fixed",
+          left: "50%",
+          top: "4rem",
+          transform: "translateX(-50%)",
+          cursor: "pointer",
+        }}
+        onClick={() => setWinner(-1)}
+      >
+        2 ☑️ 1 ❌
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div
+        className="App"
+        style={{
+          display: "flex",
+          justifyContent: "space-evenly",
+          width: "100vw",
+        }}
+      >
+        <Counter winner={winner === 0} setWinner={setWinner} idx={0} />
+        <Counter winner={winner === 1} setWinner={setWinner} idx={1} />
+        <Counter winner={winner === 2} setWinner={setWinner} idx={2} />
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    </>
+  );
 }
 
-export default App
+export default App;
